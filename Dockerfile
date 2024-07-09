@@ -4,7 +4,7 @@ WORKDIR /idf-site
 
 COPY ./requirements.txt ./idf-site/requirements.txt
 
-RUN pip install --no-cache-dir -r /idf-site/requirements.txt
+RUN pip install --no-cache-dir -r ./requirements.txt
 
 COPY . ./idf-site
 
