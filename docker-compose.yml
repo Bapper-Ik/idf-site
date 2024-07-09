@@ -1,0 +1,6 @@
+name: idf_site
+services:
+    idf:
+        build: .
+        
+    
