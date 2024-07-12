@@ -1,12 +1,12 @@
 FROM python:3.12.2
 
-WORKDIR /idf-site
+WORKDIR /usr/src/app
 
-COPY ./requirements.txt ./idf-site/requirements.txt
+COPY requirements.txt ./
 
-RUN pip install --no-cache-dir -r ./requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
 
-COPY . ./idf-site
+COPY . .
 
 CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
 

@@ -1,6 +1,29 @@
-name: idf_site
+version: "3"
 services:
-    idf:
-        build: .
-        
-    
+  api:
+    build: .
+    ports:
+      - 8000:8000
+
+    # env_file:
+    #   - ./.env
+
+    environment:
+      - DATABASE_HOST=postgres
+      - DATABASE_PORT=5432
+      - DATABASE_NAME=idf-site
+      - DATABASE_USERNAME=postgres
+      - DATABASE_PASSWORD=Bs79SK-=bj
+      - SECRET_KEY=jdljhwuendsfn82u38010u128ewjnd83ukdnsm9sque238ewdns
+      - ALGORITHM= HS256
+      - ACCESS_TOKEN_EXPIRATION_TIME=30
+  postgres:
+    image: postgres
+    environment:
+      - POSTGRES_PASSWORD=Bs79SK-=bj
+      - POSTGRES_DB=idf-site
+    volumes:
+      - postgres-db:/var/lib/postgresql/data
+
+volumes:
+  postgres-db:
